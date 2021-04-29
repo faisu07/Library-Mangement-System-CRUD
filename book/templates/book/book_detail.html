@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:#4DB6AC; ">
+    <nav class="navbar navbar-light" style="background-color:#FF0033;">
+        <a class="navbar-link btn-lg" href="{% url 'book_list' %}" style="background-color:#FFCC33;color:#000000;">Book List</a>
+        <a href="{% url 'book_create' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Upload Books</a>
+    </nav>
+    <div class="card-columns" style="padding:8%; margin-left:390px;margin-top:40px; text-align:center; ">
+            <div class="card" style="width: 35rem;">
+                <div class="card-body">
+                
+                <img class="card-img-top" src = "{{ books.picture.url }}">
+                    <br>
+                <b>Name of the Book:</b> {{ books.name }}
+                    <br>
+                <b>Cost of the Book: </b> {{ books.Price }}
+                    <br>
+                <b>Author of the Book: </b> {{ books.author }}
+                    <br>
+                <b>Descrption of the Book: </b> {{ books.describe }}
+                </div>
+            </div>
+    </div> 
+
+</body>
+</html>

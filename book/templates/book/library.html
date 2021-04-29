@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>library CRUD</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+</head>
+<body style="background-color:#4DB6AC;">
+<nav class="navbar navbar-light" style="background-color:#FF0033;">
+	<a class="navbar-link btn-lg" href="{% url 'book_list' %}" style="background-color:#FFCC33;color:#000000;">Book List</a>
+    <a href="{% url 'book_create' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Upload Books</a>
+</nav>
+<br>
+{% block content %}
+<div class="card-columns">
+{% for book in books %}
+	<div class="card" style="width: 18rem;">
+  		<a href="{{book.id}}"> <img class="card-img-top" src = "{{ book.picture.url }}"></a>
+  		<div class="card-body">
+    		<h5 class="card-title">{{ book.name }}</h5>
+    		<p class="card-text"> Rupees {{ book.Price }}</p>
+    		<div class="card-footer bg-transparent border-dark">
+    			<p class="card-title">{{book.author}}</p>
+    			<center>
+				<a href="update/{{book.id}}" class="btn btn-warning" id = '{{book.id}}'>Edit</a>
+				<a href="delete/{{book.id}}" class="btn btn-danger" id = '{{book.id}}'>Delete</a>
+				</center>
+			</div>
+  		</div>
+	</div>
+{% endfor %}
+</div>
+{% endblock %}
+</body>
+</html>
